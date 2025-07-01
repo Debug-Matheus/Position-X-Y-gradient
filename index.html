@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Position em %</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #111;
+      color: #0f0;
+      font-family: monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="coords">X: 0% | Y: 0%</div>
+  <script>
+    const coords = document.getElementById("coords");
+    document.addEventListener("mousemove", (e) => {
+      const x = ((e.clientX / window.innerWidth) * 100).toFixed(1);
+      const y = ((e.clientY / window.innerHeight) * 100).toFixed(1);
+      coords.textContent = `X: ${x}% | Y: ${y}%`;
+    });
+  </script>
+</body>
+</html>
